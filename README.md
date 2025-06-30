@@ -1,9 +1,7 @@
-[Cloudstudiomasters.com](https://cloudstudiomasters.com)
-
-# NDItoMP4 Transcode Native NDI recordings to MP4 with timecode
+# Transcode Native NDI recordings to MP4 with timecode
 ## A Cloudstudiomasters Utility
 
-
+[Cloudstudiomasters.com](https://cloudstudiomasters.com)
 ![Logo](csd-logo.png "Cloudstudiomasters logo")
 
 ## Overview
