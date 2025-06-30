@@ -2,16 +2,29 @@
 
 ## Overview
 
-This script batch transcodes NDI or MOV files to fault-tolerant MP4, ProRes, or DNxHD files using ffmpeg2. It is designed for robust, user-friendly operation, with support for drag-and-drop, SendTo shortcut, and flexible command-line usage. The script preserves timecode and metadata, and will not overwrite existing files.
+This script batch transcodes native NDI and MOV files to fault-tolerant MP4 files with timecode. 
+It is designed for robust, user-friendly operation, with support for drag-and-drop, SendTo shortcut, and flexible command-line usage. The script preserves timecode and metadata, and will not overwrite existing files.
 
 ## Features
-- Batch transcode multiple files at once
-- Choose encoding preset: MP4 (H.264), ProRes, or DNxHD
+- Batch transcode multiple files at once using Windows > Sendto Menu
 - Preserves timecode and all metadata
 - Will not overwrite existing files
 - User-friendly: supports drag-and-drop, SendTo shortcut, and command-line
-- Color-coded status and error messages
 - Initialization mode to set up SendTo shortcut and PATH
+
+## Requirements
+- Windows with PowerShell
+- `ffmpeg2` must be installed and available in your PATH (the script can add it for you with `-Init`)
+
+This script utilizes the ffmpeg build that is installed with vMix. If you do not have vMix installed to the default location, this script will not work.
+The vMix ffmpeg build has the ability to decode NDI native recordings, which is why it is used.
+
+## Setup 
+
+### Initialization (creates SendTo shortcut and adds ffmpeg2 to PATH)
+```powershell
+powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 -Init
+```
 
 ## Usage
 
@@ -20,19 +33,9 @@ This script batch transcodes NDI or MOV files to fault-tolerant MP4, ProRes, or 
 powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 <files>
 ```
 
-### With Preset
-```powershell
-powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 -Preset prores <files>
-```
-
-### With -File Parameter
+### With -File Parameters
 ```powershell
 powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 -File "C:\Videos\input1.mov" "C:\Videos\input2.mov"
-```
-
-### Initialization (creates SendTo shortcut and adds ffmpeg2 to PATH)
-```powershell
-powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 -Init
 ```
 
 ### Help
@@ -41,7 +44,6 @@ powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 -help
 ```
 
 ## Parameters
-- `-Preset` (optional): Encoding preset. Options: `mp4` (default), `prores`, `dnxhd`.
 - `-File` or positional arguments: One or more files to transcode.
 - `-Init`: Initializes the script (copies to Public Documents, creates SendTo shortcut, adds ffmpeg2 to PATH).
 - `-help`: Shows help message and exits.
@@ -49,10 +51,6 @@ powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 -help
 ## Output
 - Output files are written to the same directory as the input, with `_transcoded.mov` appended to the filename.
 - If the output file already exists, it will be skipped.
-
-## Requirements
-- Windows with PowerShell
-- `ffmpeg2` must be installed and available in your PATH (the script can add it for you with `-Init`)
 
 ## Example
 ```powershell
@@ -66,4 +64,4 @@ powershell -ExecutionPolicy Bypass -File NDItoMp4v2.ps1 -Preset mp4 "C:\Videos\i
 
 ---
 
-© Michael Lange. See LICENSE for details.
+© Cloudstudiomasters. See LICENSE for details.
