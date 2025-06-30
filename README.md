@@ -1,7 +1,7 @@
 # NDItoMP4 Transcode Native NDI recordings to MP4 with timecode
 ## A Cloudstudiomasters Utility
 
-[image](https://www.cloudstudiomasters.com/content/images/2025/06/CSD_Logo-1.png)
+[image](csd-logo.png)
 
 ## Overview
 
