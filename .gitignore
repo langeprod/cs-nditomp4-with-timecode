@@ -1,0 +1,22 @@
+# Ignore PowerShell script logs and output
+*_TranscodeLog.txt
+*_transcoded.mp4
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# VS Code settings
+.vscode/
+tests/*
+
+# PowerShell history
+*.pshistory
+
+# Miscellaneous
+*.log
+*.tmp
+~$*
+
+# Ignore files copied to Public Documents
+/NDItoMP4.ps1
